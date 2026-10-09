@@ -8,22 +8,23 @@ rooms = {
     "Cellar": {"west": "Bedroom"},
 }
 
-
+# The player begins the gane in the Great Hall.
 current_room = "Great Hall"
+# Keep the game running until the player chooses exit.
 while current_room != "exit":
+    # Display the player's current location.
     print("You are in the", current_room)
+    # Ask for direction and standardize the input.
     command = input("Enter a direction (north, south, east, west) or exit: ") .lower().strip()
+    # End the game when the player chooses to exit.
     if command == "exit":
         current_room = "exit"
+    # Move the player only if the direction is valid.
     elif command in rooms[current_room]:
         current_room = rooms[current_room][command]
+    # Keep the player in the room for invald input.
     else:
         print("Invalid direction. Please try again.")
-# Within the loop, complete the required behavior in small steps:
-#   1. Display the current room.
-#   2. Prompt for a movement command or "exit".
-#   3. Branch for a valid move, exit, or invalid input.
-#   4. Update the room only after a valid movement command.
-#   5. Continue until the required exit condition is reached.
 
-# TODO: Run and debug all milestone cases in prototype/README.md.
+
+
