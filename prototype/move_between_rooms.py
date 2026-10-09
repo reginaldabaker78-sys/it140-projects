@@ -9,9 +9,16 @@ rooms = {
 }
 
 
-# TODO: Set the player's starting room for the simplified prototype.
-
-# TODO: Create the gameplay loop required by the milestone.
+current_room = "Great Hall"
+while current_room != "exit":
+    print("You are in the", current_room)
+    command = input("Enter a direction (north, south, east, west) or exit: ") .lower().strip()
+    if command == "exit":
+        current_room = "exit"
+    elif command in rooms[current_room]:
+        current_room = rooms[current_room][command]
+    else:
+        print("Invalid direction. Please try again.")
 # Within the loop, complete the required behavior in small steps:
 #   1. Display the current room.
 #   2. Prompt for a movement command or "exit".
