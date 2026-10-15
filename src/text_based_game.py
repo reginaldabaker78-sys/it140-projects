@@ -25,26 +25,85 @@ def show_status(current_room, inventory, rooms):
 
 def main():
     """Run the main gameplay loop."""
-    # TODO: Create the full room/item dictionary from your Project One map.
+    rooms = {
+        "Locker Room": {
+            "north": "Championship Ring",
+            "west": "Training Gym"
+        },
+        "Training Gym": {
+            "north": "Equipment Room",
+            "east": "Locker Room",
+            "item": "Boxing Gloves"
+        },
+        "Equipment Room": {
+            "north": "Coach's Office",
+            "south": "Training Gym",
+            "item": "Hand Wraps"
+        },
+        "Coach's Office": {
+            "south": "Equipment Room",
+            "east": "Conditioning Room",
+            "item": "Fight Strategy"
+        },
+        "Conditioning Room": {
+            "west": "Coach's Office",
+            "east": "Medical Room",
+            "item": "Water Bottle"
+        },
+        "Medical Room": {
+            "west": "Conditioning Room",
+            "south": "Warm-Up Room",
+            "item": "Mouthguard"
+        },
+        "Warm-Up Room": {
+            "north": "Medical Room",
+            "west": "Championship Ring",
+            "item": "Boxing Shoes"
+        },
+        "Championship Ring": {
+            "east": "Warm-Up Room",
+            "south": "Locker Room"
+        }    
+    }
 
-    # TODO: Set the player's starting room.
 
-    # TODO: Create the player's inventory.
+    current_room = "Locker Room"
 
-    # TODO: Call the instruction function at the appropriate time.
+    inventory = []
 
-    # TODO: Create the gameplay loop.
-    # Within the loop:
-    #   - Show player status.
-    #   - Prompt for the player's next command.
-    #   - Handle valid movement commands.
-    #   - Handle valid get-item commands.
-    #   - Validate invalid commands.
-    #   - Update room/inventory state when appropriate.
-    #   - Detect and display the required winning outcome.
-    #   - Detect and display the required losing outcome.
-    #   - End the loop when the player has won or lost.
-    pass
+    show_instructions()
+
+    while True:
+        show_status(current_room, inventory, rooms)
+        command = input("Enter your command: ").lower().strip()
+        if command.startswith("go "):
+            direction = command[3:]
+
+            if direction in rooms[current_room]:
+                current_room = rooms[current_room][direction]
+            else:
+                print("You can't go that way.") 
+         elif command == "get item":
+                if "item" in rooms[current_room]:
+                    item = rooms[current_room]["item"]
+                    inventory.append(item)
+                    del rooms[current_room]["item"]
+                    print(item, "added to your inventory.")
+            else:
+                print("There is no item in this room."     
+         else:
+                print("Invalid command.")
+         if current_room == "Championship Ring":
+            if len(inventory) == 6:
+                print("You collected all six items and defeated Victor \"The Hammer\" Kane!")
+                print("Congratulations! You are the new champion!")
+                break
+            else:
+                print("You entered the Championship Ring before collecting all six items.")
+                print("Victor \"The Hammer\" Kane knocks you out. Game over!")
+                break              
+                
+    
 
 
 if __name__ == "__main__":
