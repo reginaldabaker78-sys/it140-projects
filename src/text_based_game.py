@@ -89,9 +89,9 @@ def main():
                     inventory.append(item)
                     del rooms[current_room]["item"]
                     print(item, "added to your inventory.")
-            else:
-                print("There is no item in this room."     
-         else:
+                else:
+                    print("There is no item in this room."     
+          else:
                 print("Invalid command.")
          if current_room == "Championship Ring":
             if len(inventory) == 6:
