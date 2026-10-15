@@ -91,9 +91,9 @@ def main():
                     print(item, "added to your inventory.")
                 else:
                     print("There is no item in this room.")     
-          else:
-                print("Invalid command.")
-         if current_room == "Championship Ring":
+        else:
+             print("Invalid command.")
+        if current_room == "Championship Ring":
             if len(inventory) == 6:
                 print("You collected all six items and defeated Victor \"The Hammer\" Kane!")
                 print("Congratulations! You are the new champion!")
