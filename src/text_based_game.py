@@ -17,7 +17,7 @@ def show_status(current_room, inventory, rooms):
     print("You are in the", current_room)
     print("Inventory:", inventory)
     if "item" in rooms[current_room]:
-        print("You see a", rooms[current_room]["item])
+        print("You see a", rooms[current_room]["item"])
     print('----------------------------------------")
                   
         
