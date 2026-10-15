@@ -83,7 +83,7 @@ def main():
                 current_room = rooms[current_room][direction]
             else:
                 print("You can't go that way.") 
-         elif command == "get item":
+        elif command == "get item":
                 if "item" in rooms[current_room]:
                     item = rooms[current_room]["item"]
                     inventory.append(item)
