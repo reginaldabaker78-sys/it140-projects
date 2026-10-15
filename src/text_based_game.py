@@ -1,12 +1,15 @@
 """Project Two starter for the student's text-based adventure game."""
 
-# TODO: Add the full-name comment required by Project Two directions.
+# Reginald A. Baker 
 
 
 def show_instructions():
     """Display the game objective and available commands."""
-    # TODO: Print instructions that match your game and commands.
-    pass
+    print("Road to the Knockout")
+    print("Collect all six boxing items before entering the Championship Ring.")
+    print("Move commands: go north, go south, go east, or go west")
+    print("Get-item command: get item")
+    print("----------------------------------------")
 
 
 def show_status(current_room, inventory, rooms):
