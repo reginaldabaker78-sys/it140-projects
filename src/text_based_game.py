@@ -90,7 +90,7 @@ def main():
                     del rooms[current_room]["item"]
                     print(item, "added to your inventory.")
                 else:
-                    print("There is no item in this room."     
+                    print("There is no item in this room.")     
           else:
                 print("Invalid command.")
          if current_room == "Championship Ring":
