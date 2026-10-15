@@ -25,6 +25,7 @@ def show_status(current_room, inventory, rooms):
 
 def main():
     """Run the main gameplay loop."""
+    # Stores each room, available directions, and collectible items
     rooms = {
         "Locker Room": {
             "north": "Championship Ring",
@@ -66,16 +67,17 @@ def main():
         }    
     }
 
-
+    # Set the player's starting room and empty inventory
     current_room = "Locker Room"
 
     inventory = []
 
     show_instructions()
-
+    # Continue the game until the player wins or loses
     while True:
         show_status(current_room, inventory, rooms)
         command = input("Enter your command: ").lower().strip()
+        # Process movement commands and update the current room
         if command.startswith("go "):
             direction = command[3:]
 
@@ -83,6 +85,7 @@ def main():
                 current_room = rooms[current_room][direction]
             else:
                 print("You can't go that way.") 
+        # Add the current room's item to the player's inventory        
         elif command == "get item":
                 if "item" in rooms[current_room]:
                     item = rooms[current_room]["item"]
@@ -93,6 +96,7 @@ def main():
                     print("There is no item in this room.")     
         else:
              print("Invalid command.")
+        # Determine wheather the player wins or loses in the Championship Ring        
         if current_room == "Championship Ring":
             if len(inventory) == 6:
                 print("You collected all six items and defeated Victor \"The Hammer\" Kane!")
