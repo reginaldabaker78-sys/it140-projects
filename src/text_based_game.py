@@ -14,10 +14,13 @@ def show_instructions():
 
 def show_status(current_room, inventory, rooms):
     """Display the player's current game status."""
-    # TODO: Show the current room.
-    # TODO: Show the current inventory.
-    # TODO: Show the current-room item when one is available.
-    pass
+    print("You are in the", current_room)
+    print("Inventory:", inventory)
+    if "item" in rooms[current_room]:
+        print("You see a", rooms[current_room]["item])
+    print('----------------------------------------")
+                  
+        
 
 
 def main():
